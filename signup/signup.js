@@ -14,10 +14,12 @@ async function postUserData(event) {
   try {
     const response = await axios.post('http://localhost:3000/user/signup', userSignupDetailObj);
     ;
-    console.log("resonse>>>>", response.data);
+  if (response.status===201){
+    alert("Signup successful. You can now log in.");
+  }
   } catch (err) {
     console.log("error", err);
-    
+    alert("email is already exist")
   }
   document.getElementById("name").value=''
   document.getElementById("email").value='';
