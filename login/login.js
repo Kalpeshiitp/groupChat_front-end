@@ -7,10 +7,17 @@ async function login(event) {
         email: email,
         password: password,
       };
+      console.log(loginObj)
         const response = await axios.post(
           "http://localhost:3000/user/login",
           loginObj
         );
+        console.log('response from server>>>>',response)
+        if(response.status===200){
+            alert(response.data.message)
+            localStorage.setItem('token',response.data.token)
+            window.location.href='../chat/chat.html'
+            }
         
       } catch (err) {
         if (err.response) {
