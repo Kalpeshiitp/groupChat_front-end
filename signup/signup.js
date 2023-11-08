@@ -1,4 +1,4 @@
-async function postUserData(event) {
+async function signup(event) {
   event.preventDefault();
   const name = document.getElementById("name").value;
   const email = document.getElementById("email").value;
@@ -16,6 +16,7 @@ async function postUserData(event) {
     ;
   if (response.status===201){
     alert("Signup successful. You can now log in.");
+    window.location.href = "../login/login.html";
   }
   } catch (err) {
     console.log("error", err);
