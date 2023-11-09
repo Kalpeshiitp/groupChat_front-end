@@ -1,38 +1,36 @@
-// Function to fetch and update messages
 async function fetchAndDisplayMessages() {
   try {
     const token = localStorage.getItem("token");
-    const response = await axios.get("http://localhost:3000/api/messages", {
-      headers: { Authorization: token },
-    });
-
-    const messages = response.data.messages;
-
-    // Get the chat container element
-    const chatMessages = document.getElementById("chat-messages");
-
-    // Check if there are new messages
-    if (messages.length > chatMessages.children.length) {
-      // Append the new messages to the chat container
-      for (let i = chatMessages.children.length; i < messages.length; i++) {
-        const message = messages[i];
-        const messageDiv = document.createElement("div");
-        messageDiv.innerHTML = `<strong>You:</strong> ${message.message}`;
-        chatMessages.appendChild(messageDiv);
+    const oldMessages = JSON.parse(localStorage.getItem("chatMessages")) || [];
+    const lastMessageId =
+      oldMessages.length > 0 ? oldMessages[oldMessages.length - 1].id : 0;
+    const response = await axios.get(
+      `http://localhost:3000/api/messages?lastMessageId=${lastMessageId}`,
+      {
+        headers: { Authorization: token },
       }
-    }
+    );
+    const newMessages = response.data.messages;
+    const names = response.data.messages.user || [];
+    const allMessages = [...oldMessages, ...newMessages];
+    updateChatContainer(allMessages, names);
+    localStorage.setItem("chatMessages", JSON.stringify(allMessages));
   } catch (err) {
     console.error(err);
   }
 }
+function updateChatContainer(messages) {
+  const chatMessages = document.getElementById("chat-messages");
+  chatMessages.innerHTML = "";
 
-// Set up polling to fetch and update messages every 1 second
+  messages.forEach((message) => {
+    const messageDiv = document.createElement("div");
+    messageDiv.innerHTML = `<strong>You:</strong> ${message.message}`;
+    chatMessages.appendChild(messageDiv);
+  });
+}
 setInterval(fetchAndDisplayMessages, 1000);
-
-// Call the function once when the page loads
-window.addEventListener("load", fetchAndDisplayMessages);
-
-
+document.addEventListener("DOMContentLoaded", fetchAndDisplayMessages);
 
 async function postMsg() {
   try {
@@ -44,12 +42,10 @@ async function postMsg() {
     await axios.post("http://localhost:3000/api/message", inputMsgObj, {
       headers: { Authorization: token },
     });
-    fetchMessages();
+    fetchAndDisplayMessages();
     document.getElementById("message").value = "";
   } catch (err) {
     console.error(err);
   }
 }
-
 document.getElementById("send").addEventListener("click", postMsg);
-
