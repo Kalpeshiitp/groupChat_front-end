@@ -1,35 +1,80 @@
+ body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
 
-  
-  .chat-container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-  }
-  
-  .chat-messages {
-    height: 300px;
-    overflow-y: scroll;
-    border: 1px solid #ccc;
-    padding: 10px;
-  }
-  
-  .chat-input {
-    margin-top: 10px;
-  }
-  
-  #message {
-    width: 70%;
-    padding: 5px;
-    border: 1px solid #ccc;
-  }
-  
-  #send {
-    width: 25%;
-    padding: 5px;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
-  
+.chat-container {
+  display: flex;
+  height: 100vh;
+}
+
+.chat-messages {
+  flex: 1;
+  overflow-y: scroll;
+  padding: 10px;
+}
+
+.chat-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  background-color: #f5f5f5;
+  position: fixed;
+  bottom: 0;
+}
+
+#message {
+  width: 80%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+#send {
+  width: 20%;
+  padding: 8px 15px;
+  background-color: #128c7e;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+.sidebar {
+  flex: 0 0 30%;
+  background-color: #ece5dd;
+  padding: 20px;
+  box-shadow: 1px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.sidebar input {
+  width: calc(100% - 20px);
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+.sidebar button {
+  width: calc(100% - 20px);
+  padding: 8px 15px;
+  background-color: #128c7e;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#group-name{
+  padding:1px;
+  background-color: orange;
+}
+.group-button{
+  color: skyblue;
+} 

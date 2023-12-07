@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="group.css" />
+    <script src="./group.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Group Chat</title>
+  </head>
+  <body>
+    <div id="container" style="display:flex;">
+        <div id="myChat" >
+            <div id="createGroup">
+              <button id="create" onclick="createGroup()">Create Group</button>
+            </div>
+            <div id="myChatList">
+                <h2>My Chats</h2>
+                <!-- Populate this div with chat list -->
+                <ul>
+                  <li>Chat 1</li>
+                  <li>Chat 2</li>
+                  <!-- Add more chat items dynamically -->
+                </ul>
+              </div>
+        </div>
+      <div id="chatBox">
+        <div id="chat-display-box"></div>
+        <div id="sendMsg" style="display: flex">
+          <input type="text" required />
+          <button type="submit" onclick="sendMessage()">Send</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="createGroupModel" style="display: none">
+      <input
+        type="text"
+        id="group-name"
+        placeholder="Enter the group name"
+        required
+      />
+      <div id="selected-users" style="display: flex;"></div>
+      <input
+        type="search"
+        id="add-user"
+        placeholder="Add user"
+        oninput="handleSearch(event)"
+      />
+      <div id="user-list"></div>
+      <button id="create-group-button" onclick="handleSubmit()">Submit</button>
+    </div>
+  </body>
+</html>
+

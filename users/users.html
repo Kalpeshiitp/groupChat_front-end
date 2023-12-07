@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="users.css">
+    <script src="./users.js"></script>
+    <title>Group</title>
+</head>
+<body>
+    <div>
+        <form onsubmit="createGroup(); return false;">
+            <label for="group">Group name</label>
+            <input id="group" required>
+            <select id="select-user" onchange="handleUserSelection()"></select>
+            <button id="load-users-button" type="button" onclick="getUsers()">Load Users</button>
+            <button id="Create-button">Create</button>
+        </form>
+    </div>
+</body>
+</html>
