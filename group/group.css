@@ -1,175 +1,119 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f2f2f2;
-  }
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f2f2f2;
+}
 
-  #container {
-    display: flex;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
+#container {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
-  #myChatList {
-    flex: 1;
-    background-color: #333;
-    color: white;
-    padding: 20px;
-  }
+#myChat {
+  flex: 1;
+  background-color: #333;
+  color: white;
+  padding: 20px;
+}
 
-  #myChat {
-    background-color: #333;
-    color: white;
-    padding: 10px;
-  }
+#chatBox {
+  flex: 2;
+  display: flex;
+  background-color: #fff;
+  border-radius: 5px;
+  overflow: hidden;
+  margin: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
-  #createGroup {
-    text-align: center;
-  }
+#myChatList {
+  flex: 1;
+  background-color: #333;
+  color: white;
+  padding: 20px;
+}
 
-  #create {
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-  }
+#createGroup {
+  text-align: center;
+}
 
-  #createGroupModel {
-    background-color: #fff;
-    padding: 20px;
-    margin: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
+#create {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
 
-  #group-name,
-  #add-user,
-  #create-group-button {
-    margin-bottom: 10px;
-    padding: 8px;
-    width: 100%;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-  }
+#createGroupModel {
+  background-color: #fff;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: none;
+}
 
-  #create-group-button {
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-  }
+/* ... Other Styles ... */
 
-  #chatBox {
-    flex: 2;
-    display: flex;
-    background-color: #fff;
-    border-radius: 5px;
-    overflow: hidden;
-    margin: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
+#chatGroup li:hover {
+  background-color: rgb(118, 174, 111);
+  cursor: pointer;
+}
 
-  #myChatList {
-    flex: 1;
-    background-color: #333;
-    color: white;
-    padding: 20px;
-  }
+#chatBox {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 5px;
+  overflow: hidden;
+  margin: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
-  input[type="text"] {
-    padding: 10px;
-    margin-bottom: 10px;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-  }
+#sendMsg {
+  display: flex;
+  padding: 20px;
+}
 
-  button {
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-  }
+#sendMsg input[type="text"] {
+  flex: 1;
+  padding: 10px;
+  margin-right: 10px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
 
-  #chatBox {
-    display: flex;
-    flex-direction: column;
-    background-color: #fff;
-    border-radius: 5px;
-    overflow: hidden;
-    margin: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  #chat-display-box {
-    padding: 20px;
-    overflow-y: auto;
-    border-bottom: 1px solid #ccc;
-    grid-area: 50%;
-  }
-  
-  #sendMsg {
-    display: flex;
-    padding: 20px;
-  }
-  
-  #sendMsg input[type="text"] {
-    flex: 1;
-    padding: 10px;
-    margin-right: 10px;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-  }
-  
-  #sendMsg button {
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-  }
-  [id^="userItem-"]:hover {
-    background-color: gray;
-    /* Add other hover styles as needed */
-  }
-  
-  #selected-users {
-    display: flex;
-    flex-wrap: wrap; /* Allow users to wrap onto a new line when there's not enough space */
-    gap: 8px; /* Add spacing between each user */
-  }
-  
-  #selected-users > li {
-    background-color: skyblue; /* Background color for selected users */
-    padding: 8px; /* Add padding for better visual appearance */
-    margin: 4px; /* Add margin to separate users */
-  }
+#sendMsg button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#message {
+  max-height: 300px; /* Adjust the height as per your requirement */
+  overflow-y: auto; /* Enable vertical scroll when content overflows */
+  padding: 10px; /* Add padding for better readability */
+  border: 1px solid #ccc; /* Optional: Add a border for better separation */
+}
+
+/* Style for individual messages */
+#message div {
+  margin-bottom: 10px; /* Adjust margin between messages */
+}
